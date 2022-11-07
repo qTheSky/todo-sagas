@@ -9,6 +9,7 @@ import createSagaMiddleWare from 'redux-saga'
 import {tasksWatcherSaga} from 'features/TodolistsList/tasks-sagas'
 import {appWatcherSaga} from 'app/app-sagas'
 import {todolistsWatcherSaga} from 'features/TodolistsList/todolists-sagas'
+import {authWatcherSaga} from 'features/Login/auth-sagas'
 
 // объединяя reducer-ы с помощью combineReducers,
 // мы задаём структуру нашего единственного объекта-состояния
@@ -29,7 +30,7 @@ export type AppRootStateType = ReturnType<typeof rootReducer>
 sagaMiddleWare.run(rootWatcher)
 
 function* rootWatcher() {
-		yield all([appWatcherSaga(), tasksWatcherSaga(), todolistsWatcherSaga()])
+		yield all([appWatcherSaga(), tasksWatcherSaga(), todolistsWatcherSaga(), authWatcherSaga()])
 }
 
 

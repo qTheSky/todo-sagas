@@ -1,15 +1,16 @@
-import {call, put, takeEvery, select} from 'redux-saga/effects'
+import {call, put, select, takeEvery} from 'redux-saga/effects'
 import {setAppStatusAC} from 'app/app-reducer'
 import {AxiosResponse} from 'axios'
 import {GetTasksResponse, ResponseType, TaskType, todolistsAPI, UpdateTaskModelType} from 'api/todolists-api'
 import {
 		addTaskAC,
 		removeTaskAC,
-		setTasksAC, TasksStateType,
+		setTasksAC,
+		TasksStateType,
 		UpdateDomainTaskModelType,
 		updateTaskAC
 } from 'features/TodolistsList/tasks-reducer'
-import {handleServerAppErrorSaga, handleServerNetworkError, handleServerNetworkErrorSaga} from 'utils/error-utils'
+import {handleServerAppErrorSaga, handleServerNetworkErrorSaga} from 'utils/error-utils'
 import {AppRootStateType} from 'app/store'
 
 export function* tasksWatcherSaga() {
